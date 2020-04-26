@@ -6,8 +6,11 @@ class Vyrobok {
 }
 
 const schody = new Vyrobok("schody", 5);
+const altanok = new Vyrobok("altanok", 1);
+const studna = new Vyrobok("studna", 3);
+const obklad = new Vyrobok("obklad", 5);
 
-const vyrobky = [schody];
+const vyrobky = [schody, altanok, studna, obklad];
 
 $(function(){
   for (const vyrobok of vyrobky) {
@@ -19,8 +22,8 @@ $(function(){
     const carousel = $(`<div id="carousel_${vyrobok.nazov}" class="carousel slide" data-ride="carousel">`);
     const indicator = $(`<ol class="carousel-indicators">`);
     for(let i = 1; i <= vyrobok.pocet; i++) {
-      const li = $(`<li data-target="#carousel_${vyrobok.nazov}" data-slide-to="${i}">`);
-      if (i == 1) {
+      const li = $(`<li data-target="#carousel_${vyrobok.nazov}" data-slide-to="${i-1}">`);
+      if (i === 1) {
         li.addClass('active');
       }
       indicator.append(li);
@@ -29,7 +32,7 @@ $(function(){
     const inner = $(`<div class="carousel-inner">`);
     for(let i = 1; i <= vyrobok.pocet; i++) {
       const item_wrapper = $(`<div class="item">`);
-      if (i == 1) {
+      if (i === 1) {
         item_wrapper.addClass('active');
       }
       item_wrapper.append($(`<img src="img/${vyrobok.nazov}${i}_400px.jpg" alt="${vyrobok.nazov}${i}" style="width:100%;">`));
