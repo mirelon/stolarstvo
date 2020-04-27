@@ -27,3 +27,7 @@ p {
     text-align: center;
     margin: 40px auto;
 }
+
+.carousel-wrapper:first-child {
+    margin-top: 0;
+}
