@@ -1,15 +1,16 @@
 class Vyrobok {
-  constructor(nazov, pocet) {
+  constructor(nazov, pocet, popis) {
     this.nazov = nazov;
     this.pocet = pocet;
+    this.popis = popis;
   }
 }
 
-const schody = new Vyrobok("schody", 5);
-const altanok = new Vyrobok("altanok", 1);
-const studna = new Vyrobok("studna", 3);
-const obklad = new Vyrobok("obklad", 6);
-const kvetinac = new Vyrobok("kvetinac", 3);
+const schody = new Vyrobok("schody", 5, "Interiérové schody z lepeného bukového dreva");
+const altanok = new Vyrobok("altanok", 1, "Záhradný altánok zo smrekového dreva");
+const studna = new Vyrobok("studna", 3, "Studňa zo smrekového dreva, presne podľa požiadaviek zákazníka");
+const obklad = new Vyrobok("obklad", 6, "Obklady z jaseňového dreva");
+const kvetinac = new Vyrobok("kvetinac", 3, "Kvetináč");
 
 const vyrobky = [schody, altanok, studna, obklad, kvetinac];
 
@@ -19,9 +20,11 @@ $(function(){
     for(let i = 0; i < vyrobok.pocet; i++) {
       console.log(`${vyrobok.nazov}${i}_400px.jpg`);
     }
-    const elem = $(`<div class="${vyrobok.nazov} carousel-wrapper">`);
+    const carousel_wrapper = $(`<div class="${vyrobok.nazov} carousel-wrapper">`);
     const carousel = $(`<div id="carousel_${vyrobok.nazov}" class="carousel slide" data-ride="carousel">`);
-    const indicator = $(`<ol class="carousel-indicators">`);
+    const popis = $(`<div class="popis show_on_hover">${vyrobok.popis}</div>`);
+    carousel.append(popis);
+    const indicator = $(`<ol class="carousel-indicators show_on_hover">`);
     for(let i = 1; i <= vyrobok.pocet; i++) {
       const li = $(`<li data-target="#carousel_${vyrobok.nazov}" data-slide-to="${i-1}">`);
       if (i === 1) {
@@ -40,16 +43,16 @@ $(function(){
       inner.append(item_wrapper);
     }
     carousel.append(inner);
-    const prev = $(`<a class="left carousel-control" href="#carousel_${vyrobok.nazov}" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span>
+    const prev = $(`<a class="left carousel-control show_on_hover" href="#carousel_${vyrobok.nazov}" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span>
           <span class="sr-only">Previous</span>`);
     carousel.append(prev);
-    const next = $(`<a class="right carousel-control" href="#carousel_${vyrobok.nazov}" data-slide="next">
+    const next = $(`<a class="right carousel-control show_on_hover" href="#carousel_${vyrobok.nazov}" data-slide="next">
           <span class="glyphicon glyphicon-chevron-right"></span>
           <span class="sr-only">Next</span>`);
     carousel.append(next);
 
-    elem.append(carousel);
+    carousel_wrapper.append(carousel);
 
-    $('#carousel-gallery').append(elem);
+    $('#carousel-gallery').append(carousel_wrapper);
   }
 })

@@ -31,3 +31,25 @@ p {
 .carousel-wrapper:first-child {
     margin-top: 0;
 }
+
+.popis {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    padding-bottom: 20px;
+    color: white;
+    background: linear-gradient(black, transparent);
+}
+
+.popis:hover {
+    color: black;
+    background: linear-gradient(white, transparent);
+}
+
+.show_on_hover {
+    display: none;
+}
+
+.carousel-wrapper:hover .show_on_hover {
+    display: block;
+}
