@@ -8,9 +8,10 @@ class Vyrobok {
 const schody = new Vyrobok("schody", 5);
 const altanok = new Vyrobok("altanok", 1);
 const studna = new Vyrobok("studna", 3);
-const obklad = new Vyrobok("obklad", 5);
+const obklad = new Vyrobok("obklad", 6);
+const kvetinac = new Vyrobok("kvetinac", 3);
 
-const vyrobky = [schody, altanok, studna, obklad];
+const vyrobky = [schody, altanok, studna, obklad, kvetinac];
 
 $(function(){
   for (const vyrobok of vyrobky) {
