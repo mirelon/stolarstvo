@@ -12,8 +12,18 @@
     <script src="js/script.js"></script>
   </head>
   <body>
-    <h1>Stolárstvo</h1>
-    <p>výrobky z masívu, záhradný nábytok, ...</p>
+    <h1 class="clickable textonly">Stolárstvo</h1>
+    <p>výrobky z masívu, záhradný nábytok, ...<span id="vsetko" class="clickable textonly">(zobraziť všetky výrobky)</span></p>
+    <div id="categories">
+      <div class="category clickable" data-category="zahradny">
+        <h2>Záhradný nábytok</h2>
+        <img src="img/altanok1_400px.jpg" />
+      </div>
+      <div class="category clickable" data-category="interier">
+        <h2>Interiérový nábytok</h2>
+        <img src="img/schody1_400px.jpg" />
+      </div>
+    </div>
     <div id="carousel-gallery"></div>
 
     <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: 'ae263456-d73c-470c-882a-1e83526a132d', f: true }); done = true; } }; })();</script>

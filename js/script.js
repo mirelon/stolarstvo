@@ -1,26 +1,27 @@
 class Vyrobok {
-  constructor(nazov, pocet, popis) {
+  constructor(nazov, pocet, popis, categories) {
     this.nazov = nazov;
     this.pocet = pocet;
     this.popis = popis;
+    this.categories = categories;
   }
 }
 
-const schody = new Vyrobok("schody", 5, "Interiérové schody z lepeného bukového dreva");
-const altanok = new Vyrobok("altanok", 1, "Záhradný altánok zo smrekového dreva");
-const studna = new Vyrobok("studna", 3, "Studňa zo smrekového dreva, presne podľa požiadaviek zákazníka");
-const obklad = new Vyrobok("obklad", 6, "Obklady z jaseňového dreva");
-const kvetinac = new Vyrobok("kvetinac", 3, "Kvetináč");
+const schody = new Vyrobok("schody", 5, "Interiérové schody z lepeného bukového dreva", ["interier"]);
+const altanok = new Vyrobok("altanok", 1, "Záhradný altánok zo smrekového dreva", ["zahradny"]);
+const studna = new Vyrobok("studna", 3, "Studňa zo smrekového dreva, presne podľa požiadaviek zákazníka", ["zahradny"]);
+const obklad = new Vyrobok("obklad", 6, "Obklady z jaseňového dreva", ["interier"]);
+const kvetinac = new Vyrobok("kvetinac", 3, "Kvetináč", ["interier", "zahradny"]);
 
 const vyrobky = [schody, altanok, studna, obklad, kvetinac];
 
-$(function(){
+function renderVyrobky() {
   for (const vyrobok of vyrobky) {
     console.log(vyrobok.nazov);
     for(let i = 0; i < vyrobok.pocet; i++) {
       console.log(`${vyrobok.nazov}${i}_400px.jpg`);
     }
-    const carousel_wrapper = $(`<div class="${vyrobok.nazov} carousel-wrapper">`);
+    const carousel_wrapper = $(`<div class="carousel-wrapper ${vyrobok.nazov} ${vyrobok.categories.join(" ")}">`);
     const carousel = $(`<div id="carousel_${vyrobok.nazov}" class="carousel slide" data-ride="carousel">`);
     const popis = $(`<div class="popis show_on_hover">${vyrobok.popis}</div>`);
     carousel.append(popis);
@@ -55,4 +56,24 @@ $(function(){
 
     $('#carousel-gallery').append(carousel_wrapper);
   }
+}
+
+function bindClicks() {
+  $('.category').click(function() {
+    $('#categories').hide();
+    $(`.${$(this).attr('data-category')}`).show();
+  })
+  $('#vsetko').click(function() {
+    $('#categories').hide();
+    $('.carousel-wrapper').show();
+  })
+  $('h1').click(function() {
+    $('#categories').show();
+    $('.carousel-wrapper').hide();
+  })
+}
+
+$(function(){
+  renderVyrobky();
+  bindClicks();
 })
