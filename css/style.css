@@ -29,16 +29,16 @@ p {
 }
 
 #carousel-gallery {
-    column-width: 400px;
-    column-fill: balance;
-    column-gap: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .carousel-wrapper {
     display: none;
     width: 400px;
     text-align: center;
-    margin: 0 auto 40px auto;
+    margin: 20px;
 }
 
 .category img {
