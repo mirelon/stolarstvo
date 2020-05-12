@@ -8,12 +8,15 @@ class Vyrobok {
 }
 
 const schody = new Vyrobok("schody", 5, "Interiérové schody z lepeného bukového dreva", ["interier"]);
-const altanok = new Vyrobok("altanok", 1, "Záhradný altánok zo smrekového dreva", ["zahradny"]);
+const altanok = new Vyrobok("altanok", 2, "Záhradný altánok zo smrekového dreva", ["zahradny"]);
 const studna = new Vyrobok("studna", 3, "Studňa zo smrekového dreva, presne podľa požiadaviek zákazníka", ["zahradny"]);
 const obklad = new Vyrobok("obklad", 6, "Obklady z jaseňového dreva", ["interier"]);
 const kvetinac = new Vyrobok("kvetinac", 3, "Kvetináč", ["interier", "zahradny"]);
+const dvere = new Vyrobok("dvere", 5, "Interierové dvere", ["interier"]);
+const postel = new Vyrobok("postel", 1, "Posteľ", ["interier"]);
+const komoda = new Vyrobok("komoda", 1, "Komoda", ["interier"]);
 
-const vyrobky = [schody, altanok, studna, obklad, kvetinac];
+const vyrobky = [schody, altanok, studna, obklad, kvetinac, dvere, postel, komoda];
 
 function renderVyrobky() {
   for (const vyrobok of vyrobky) {
